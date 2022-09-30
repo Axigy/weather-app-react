@@ -89,6 +89,12 @@ body {
   color: #61dafb;
 }
 
+.Footer {
+  text-align: left;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

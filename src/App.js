@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Main from "./Main";
+import Footer from "./Footer";
 
 function App() {
   const [city, setCity] = useState();
@@ -48,6 +49,7 @@ function App() {
         <h3>{h1}</h3>
       </div>
       <Main city={city} />
+      <Footer />
     </div>
   );
 }
