@@ -45,7 +45,7 @@ export default function Main(prop) {
 
           <ul className="row_col_card-text">
             <li>
-              Wind: <span id="wind-speed">{wind}</span> m/H{" "}
+              Wind: <span id="wind-speed">{Math.round(wind)}</span> m/H{" "}
             </li>
             <li>
               Humidity: <span id="humidity">{Math.round(humidity)}</span>%{" "}
