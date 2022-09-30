@@ -11,7 +11,7 @@ export default function Footer() {
           rel="noopener noreferrer"
         >
           open-source project
-        </a>
+        </a>{" "}
         by Anhelina K
       </p>
     </div>
