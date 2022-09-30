@@ -47,7 +47,7 @@ function App() {
         </form>
         <h3>{h1}</h3>
       </div>
-      <Main />
+      <Main city={city} />
     </div>
   );
 }

@@ -46,6 +46,30 @@ body {
 #change-to-fahrenheit.active {
   text-decoration: underline;
 }
+ul li {
+  list-style: none;
+}
+body {
+  font-family: "Cinzel", serif;
+  text-align: center;
+}
+.container {
+  padding: 16px 0;
+}
+.overview {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+}
+.overview ul {
+  margin: 0;
+  padding: 0;
+}
+.currentTemp {
+  display: block;
+  line-height: 2;
+  font-weight: 700;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
