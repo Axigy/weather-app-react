@@ -1,24 +1,53 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
+import Main from "./Main";
 
 function App() {
+  const [city, setCity] = useState();
+  const [h1, setH1] = useState();
+
+  function showCityTemperature(e) {
+    e.preventDefault();
+    if (city) {
+      setH1(`Today in ${city}`);
+    } else {
+      setH1(`Input your location`);
+    }
+  }
+  function addCity(e) {
+    setCity(e.target.value);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div className="Attic">
+      <div>
+        <a href="/" id="change-to-celsius" className="active">
+          {" "}
+          °C{" "}
         </a>
-      </header>
+        <a href="/" id="change-to-fahrenheit">
+          {" "}
+          °F{" "}
+        </a>
+      </div>
+      <div>
+        <form
+          className="search_form"
+          id="search-city-form"
+          onSubmit={showCityTemperature}
+        >
+          <input
+            type="text"
+            placeholder="Enter your city"
+            id="input-city"
+            autoComplete="on"
+            value={city}
+            onChange={addCity}
+          />
+          <input type="submit" value="Search" className="search_button" />
+        </form>
+        <h3>{h1}</h3>
+      </div>
+      <Main />
     </div>
   );
 }

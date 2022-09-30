@@ -2,9 +2,49 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  padding: 16px 32px;
+  font-family: "Cinzel", serif;
+  text-align: center;
+}
+.App {
+  padding: 16px 32px;
+  border: 1px solid #71ac98;
+  border-radius: 32px;
+}
+
+.search_form {
+  margin: 4px auto;
+  width: 400px;
+  padding: 0;
+}
+.search_button {
+  margin-left: 4px;
+  padding: 2px 12px;
+  border-radius: 4px;
+  border: 2px solid #71ac98;
+  transition: all 200ms ease-in-out;
+  color: #385170;
+  box-shadow: 2px 2px 9px 3px rgba(56, 81, 112, 0.1);
+}
+.search_button:hover {
+  border: 2px solid #385170;
+  background-color: #385170;
+  color: #ececec;
+}
+#change-to-celsius,
+#change-to-fahrenheit {
+  color: #385170;
+  font-weight: 700;
+  padding: 4px;
+  line-height: 2;
+  margin: 0 4px;
+  transition: all 200ms ease-in-out;
+  text-decoration: none;
+}
+#change-to-celsius.active,
+#change-to-fahrenheit.active {
+  text-decoration: underline;
 }
 
 @media (prefers-reduced-motion: no-preference) {
