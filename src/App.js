@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
 import Main from "./Main";
+import axios from "axios";
 
 function App() {
   const [city, setCity] = useState("New York");
   const [h1, setH1] = useState(`Today in ${city}`);
+  const [weather, setWeather] = useState({ ready: false });
 
   function showCityTemperature(e) {
     e.preventDefault();
-
+    search();
     if (city) {
       setH1(`Today in ${city}`);
     } else {
@@ -19,6 +21,20 @@ function App() {
     setCity(e.target.value);
   }
 
+  function showData(resp) {
+    console.log(resp.data);
+    setWeather({
+      temp: resp.data.main.temp,
+      wind: resp.data.wind.speed,
+      humidity: resp.data.main.humidity,
+      description: resp.data.weather[0].description,
+      icon: `http://openweathermap.org/img/wn/${resp.data.weather[0].icon}@2x.png`,
+    });
+  }
+  function search() {
+    const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=920ae924ef286b04c010bf50d5e7861f`;
+    axios.get(urlApi).then(showData);
+  }
   return (
     <div className="Attic">
       <div className="container">
@@ -54,7 +70,7 @@ function App() {
           <h3>{h1}</h3>
         </div>
       </div>
-      <Main city={city} />
+      <Main forecast={weather} />
     </div>
   );
 }
