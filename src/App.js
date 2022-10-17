@@ -32,7 +32,7 @@ function App() {
     });
   }
   function search() {
-    const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=920ae924ef286b04c010bf50d5e7861f`;
+    const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=64e8bf8bdd085388ddf709fb1376b4fe`;
     axios.get(urlApi).then(showData);
   }
   return (
