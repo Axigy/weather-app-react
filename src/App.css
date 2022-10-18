@@ -68,3 +68,11 @@ body {
   line-height: 2;
   font-weight: 700;
 }
+
+.loading-balls {
+  margin: 0 auto;
+}
+
+.main-invitation {
+  margin-top: 32px auto;
+}
