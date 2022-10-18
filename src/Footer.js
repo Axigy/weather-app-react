@@ -1,4 +1,5 @@
 import React from "react";
+import "./footer.css";
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
         >
           open-source project
         </a>{" "}
-        by Anhelina K
+        by Axigy
       </p>
     </div>
   );

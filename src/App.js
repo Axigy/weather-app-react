@@ -6,23 +6,18 @@ import Loading from "./Loading";
 
 function App() {
   const [city, setCity] = useState("");
-  const [h1, setH1] = useState(`Today in ${city}`);
+
   const [weather, setWeather] = useState({ ready: false });
   const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=64e8bf8bdd085388ddf709fb1376b4fe`;
 
   function showCityTemperature(e) {
     e.preventDefault();
     search();
-    if (city) {
-      setH1(`Today in ${city}`);
-    } else {
-      setH1(`Input your location`);
-    }
   }
   function addCity(e) {
     setCity(e.target.value);
   }
-  function presentForecast() {}
+
   function showData(resp) {
     console.log(resp);
     setWeather({
@@ -32,7 +27,6 @@ function App() {
       description: resp.data.weather[0].description,
       icon: `http://openweathermap.org/img/wn/${resp.data.weather[0].icon}@2x.png`,
     });
-    presentForecast();
   }
   function search() {
     axios.get(urlApi).then(showData);
@@ -70,7 +64,7 @@ function App() {
               </form>
             </div>
 
-            <h3>{h1}</h3>
+            <h3>Today in {city}</h3>
           </div>
         </div>
         <Main forecast={weather} />
