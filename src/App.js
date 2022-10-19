@@ -6,7 +6,6 @@ import Loading from "./Loading";
 
 function App() {
   const [city, setCity] = useState("");
-
   const [weather, setWeather] = useState({ ready: false });
   const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=64e8bf8bdd085388ddf709fb1376b4fe`;
 
@@ -24,6 +23,7 @@ function App() {
       temp: resp.data.main.temp,
       wind: resp.data.wind.speed,
       humidity: resp.data.main.humidity,
+      date: new Date(resp.data.dt * 1000),
       description: resp.data.weather[0].description,
       icon: `http://openweathermap.org/img/wn/${resp.data.weather[0].icon}@2x.png`,
     });
@@ -36,7 +36,7 @@ function App() {
       <div className="Attic">
         <div className="container">
           <div className="row attic-line">
-            <div className="col-3">
+            <div className="col-md-3">
               <a href="/" id="change-to-celsius" className="active">
                 {" "}
                 °C{" "}
@@ -47,7 +47,7 @@ function App() {
               </a>
             </div>
 
-            <div className="col-9">
+            <div className="col-md-9">
               <form
                 className="search_form"
                 id="search-city-form"
@@ -67,7 +67,7 @@ function App() {
             <h3>Today in {city}</h3>
           </div>
         </div>
-        <Main forecast={weather} />
+        <Main data={weather} />
       </div>
     );
   } else {
@@ -75,7 +75,7 @@ function App() {
       <div className="Attic">
         <div className="container">
           <div className="row attic-line">
-            <div className="col-3">
+            <div className="col-md-3">
               <a href="/" id="change-to-celsius" className="active">
                 {" "}
                 °C{" "}
@@ -86,7 +86,7 @@ function App() {
               </a>
             </div>
 
-            <div className="col-9">
+            <div className="col-md-9">
               <form
                 className="search_form"
                 id="search-city-form"
