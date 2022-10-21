@@ -31,7 +31,7 @@ function App() {
   function search() {
     axios.get(urlApi).then(showData);
   }
-  if (city) {
+  if (city && weather.temp) {
     return (
       <div className="Attic">
         <div className="container">
@@ -63,8 +63,6 @@ function App() {
                 <input type="submit" value="Search" className="search_button" />
               </form>
             </div>
-
-            <h3>Today in {city}</h3>
           </div>
         </div>
         <Main data={weather} />
