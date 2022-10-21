@@ -10,7 +10,7 @@ export default function FormateDate(prop) {
     "Friday",
     "Saturday",
   ];
-  let date = new Date(prop.date);
+  let date = new Date(prop.date * 1000);
   let hours = date.getHours();
   let day = days[date.getDay()];
   let minutes = date.getMinutes();
