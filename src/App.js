@@ -29,7 +29,7 @@ function App() {
   function search() {
     axios.get(urlApi).then(showData);
   }
-  if (city) {
+  if (weather.ready) {
     return (
       <div className="Attic container">
         <div className="row attic-line">
@@ -66,42 +66,40 @@ function App() {
     );
   } else {
     return (
-      <div className="Attic">
-        <div className="container">
-          <div className="row attic-line">
-            <div className="col-md-3">
-              <a href="/" id="change-to-celsius" className="active">
-                {" "}
-                °C{" "}
-              </a>
-              <a href="/" id="change-to-fahrenheit">
-                {" "}
-                °F{" "}
-              </a>
-            </div>
-
-            <div className="col-md-9">
-              <form
-                className="search_form"
-                id="search-city-form"
-                onSubmit={showCityTemperature}
-              >
-                <input
-                  type="text"
-                  placeholder="Enter your city"
-                  id="input-city"
-                  autoComplete="on"
-                  onChange={addCity}
-                />
-                <input type="submit" value="Search" className="search_button" />
-              </form>
-            </div>
+      <div className="Attic container">
+        <div className="row attic-line">
+          <div className="col-md-3">
+            <a href="/" id="change-to-celsius" className="active">
+              {" "}
+              °C{" "}
+            </a>
+            <a href="/" id="change-to-fahrenheit">
+              {" "}
+              °F{" "}
+            </a>
           </div>
-          <h3 className="main-invitation">
-            Enter your location
-            <Loading type="bubbles" color="#71ac98" />{" "}
-          </h3>
+
+          <div className="col-md-9">
+            <form
+              className="search_form"
+              id="search-city-form"
+              onSubmit={showCityTemperature}
+            >
+              <input
+                type="text"
+                placeholder="Enter your city"
+                id="input-city"
+                autoComplete="on"
+                onChange={addCity}
+              />
+              <input type="submit" value="Search" className="search_button" />
+            </form>
+          </div>
         </div>
+        <h3 className="main-invitation">
+          Enter your location
+          <Loading type="bubbles" color="#71ac98" />{" "}
+        </h3>
       </div>
     );
   }
