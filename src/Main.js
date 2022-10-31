@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import FormateDate from "./FormateDate";
 import WeatherIcon from "./WeatherIcon";
+import CurrentTemperature from "./CurrentTemperature";
 
 export default function Main(prop) {
   if (prop) {
@@ -20,12 +21,9 @@ export default function Main(prop) {
           </div>
 
           <div className="overviewRow col-md-3">
-            <h5 className="currentTemp mt-1">
-              <span id="temp-value">{Math.round(prop.data.temp)}</span>
-              <span className="degreesIcon">°C</span>
-            </h5>
+            <CurrentTemperature celsiusTemp={prop.data.temp} />
           </div>
-          <div className="overviewRow col-md-4 mt-5">
+          <div className="overviewRow col-md-4 mt-4">
             <ul className="row_col_card-text ">
               <li>
                 Wind: <span id="wind-speed">{Math.round(prop.data.wind)}</span>{" "}

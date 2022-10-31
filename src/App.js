@@ -40,6 +40,7 @@ function App() {
               onSubmit={showCityTemperature}
             >
               <input
+                className="p-1 px-2"
                 type="text"
                 placeholder="Enter your city"
                 id="input-city"
@@ -64,6 +65,7 @@ function App() {
               onSubmit={showCityTemperature}
             >
               <input
+                className="p-1 px-2"
                 type="text"
                 placeholder="Enter your city"
                 id="input-city"
