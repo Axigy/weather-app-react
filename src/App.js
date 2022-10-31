@@ -6,8 +6,8 @@ import Main from "./Main";
 
 function App() {
   const [weather, setWeather] = useState({ ready: false });
-  const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=64e8bf8bdd085388ddf709fb1376b4fe`;
   const [city, setCity] = useState("");
+  const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=64e8bf8bdd085388ddf709fb1376b4fe`;
   function showCityTemperature(e) {
     e.preventDefault();
     search();
@@ -29,7 +29,7 @@ function App() {
   function search() {
     axios.get(urlApi).then(showData);
   }
-  if (weather.ready) {
+  if (weather) {
     return (
       <div className="Attic container">
         <div className="row attic-line">
