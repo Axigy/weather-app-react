@@ -32,20 +32,7 @@
   background-color: #385170;
   color: #ececec;
 }
-#change-to-celsius,
-#change-to-fahrenheit {
-  color: #385170;
-  font-weight: 700;
-  padding: 4px;
-  line-height: 2;
-  margin: 0 4px;
-  transition: all 200ms ease-in-out;
-  text-decoration: none;
-}
-#change-to-celsius.active,
-#change-to-fahrenheit.active {
-  text-decoration: underline;
-}
+
 ul li {
   list-style: none;
 }
@@ -75,4 +62,8 @@ body {
 
 .main-invitation {
   margin-top: 32px auto;
+}
+
+#temp-value {
+  font-size: 48px;
 }

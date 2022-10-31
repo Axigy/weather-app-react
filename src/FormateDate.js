@@ -20,7 +20,7 @@ export default function FormateDate(prop) {
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  console.log(hours);
+
   return (
     <li>
       {day} {hours}:{minutes}
