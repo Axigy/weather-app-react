@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Loading from "./Loading";
 import axios from "axios";
 import Main from "./Main";
 
@@ -51,7 +50,7 @@ function App() {
                 type="text"
                 placeholder="Enter your city"
                 id="input-city"
-                autoComplete="on"
+                autoComplete="off"
                 onChange={addCity}
               />
               <input type="submit" value="Search" className="search_button" />
@@ -83,10 +82,7 @@ function App() {
             </form>
           </div>
         </div>
-        <h3 className="main-invitation">
-          Enter your location
-          <Loading type="bubbles" color="#71ac98" />{" "}
-        </h3>
+        <h3 className="main-invitation">Enter your location</h3>
       </div>
     );
   }
