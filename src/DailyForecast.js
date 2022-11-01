@@ -15,6 +15,12 @@ export default function DailyForecast(props) {
     setLoaded(false);
   }, [props]);
 
+  function load() {
+    const keyApi = "ta06aa0d83ff25ab34df62b33bed5oe8";
+    const urlApi = `https://api.shecodes.io/weather/v1/forecast?query=${props.city}&key=${keyApi}`;
+    axios(urlApi).then(showDailyForecast);
+  }
+
   if (loaded) {
     return (
       <div className="WeatherForecast container">
@@ -34,8 +40,6 @@ export default function DailyForecast(props) {
       </div>
     );
   } else {
-    const keyApi = "ta06aa0d83ff25ab34df62b33bed5oe8";
-    const urlApi = `https://api.shecodes.io/weather/v1/forecast?query=${props.city}&key=${keyApi}`;
-    axios(urlApi).then(showDailyForecast);
+    load();
   }
 }

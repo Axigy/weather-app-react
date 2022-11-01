@@ -13,19 +13,17 @@ export default function Main(prop) {
           <div className="col-md-5">
             {<WeatherIcon code={prop.data.icon} size={80} />}
 
-            <ul>
-              <li>
-                <FormateDate date={prop.data.date} />
-              </li>
-              <li>{prop.data.description}</li>
-            </ul>
+            <div>
+              <FormateDate date={prop.data.date} />
+              <div>{prop.data.description}</div>
+            </div>
           </div>
 
           <div className="overviewRow col-md-3">
             <CurrentTemperature celsiusTemp={prop.data.temp} />
           </div>
-          <div className="overviewRow col-md-4 mt-4">
-            <ul className="row_col_card-text ">
+          <div className="overviewRow col-md-4 ">
+            <ul className="row_col_card-text mt-4 ">
               <li>
                 Wind: <span id="wind-speed">{Math.round(prop.data.wind)}</span>{" "}
                 m/H{" "}

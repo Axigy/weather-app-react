@@ -20,7 +20,6 @@ function App() {
 
   function showData(resp) {
     setLoaded(true);
-    console.log(resp);
     setWeather({
       name: resp.data.name,
       temp: resp.data.main.temp,
