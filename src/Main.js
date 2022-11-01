@@ -3,6 +3,7 @@ import "./App.css";
 import FormateDate from "./FormateDate";
 import WeatherIcon from "./WeatherIcon";
 import CurrentTemperature from "./CurrentTemperature";
+import DailyForecast from "./DailyForecast";
 
 export default function Main(prop) {
   if (prop) {
@@ -36,6 +37,7 @@ export default function Main(prop) {
             </ul>
           </div>
         </div>
+        <DailyForecast city={prop.data.name} />
       </main>
     );
   } else {

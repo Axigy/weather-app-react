@@ -9,23 +9,19 @@ export default function DailyForecastbyDay(prop) {
     time: prop.forecast.time,
     code: prop.forecast.condition.icon,
   };
-  if (prop.forecast) {
-    return (
-      <div>
-        {<DayOfWeek date={weather.time} />}
+  return (
+    <div>
+      {<DayOfWeek date={weather.time} />}
 
-        {<Weathericon code={weather.code} size={40} />}
-        <div className="forecast-temperature">
-          <span className="forecast-temperature-max font-weight-bold">
-            {Math.round(weather.max_temp)}°
-          </span>{" "}
-          <span className="forecast-temperature-min opacity-75">
-            {Math.round(weather.min_temp)}°
-          </span>
-        </div>
+      {<Weathericon code={weather.code} size={40} />}
+      <div className="forecast-temperature">
+        <span className="forecast-temperature-max font-weight-bold">
+          {Math.round(weather.max_temp)}°
+        </span>{" "}
+        <span className="forecast-temperature-min opacity-75">
+          {Math.round(weather.min_temp)}°
+        </span>
       </div>
-    );
-  } else {
-    return null;
-  }
+    </div>
+  );
 }

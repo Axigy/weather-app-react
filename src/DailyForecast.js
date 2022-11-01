@@ -1,29 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DailyForecastbyDay from "./DailyForecastbyDay";
-import "./DailyForecast.css";
 
 export default function DailyForecast(props) {
   let [forecast, setForecast] = useState(null);
   let [loaded, setLoaded] = useState(false);
 
   function showDailyForecast(resp) {
-    console.log(resp.data);
     setLoaded(true);
     setForecast(resp.data.daily);
   }
 
+  useEffect(() => {
+    setLoaded(false);
+  }, [props]);
+
   if (loaded) {
     return (
       <div className="WeatherForecast container">
-        <div className="row justify-content-sm-center">
+        <div className="row ">
           {forecast.map(function (dailyForecast, index) {
             if (index < 6) {
               return (
-                <div className="col-sm-2" key={index}>
+                <div className="col-2 align-items-center" key={index}>
                   <DailyForecastbyDay forecast={dailyForecast} />
                 </div>
               );
+            } else {
+              return null;
             }
           })}
         </div>

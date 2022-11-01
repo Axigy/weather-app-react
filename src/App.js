@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Loading from "./Loading";
 import axios from "axios";
 import Main from "./Main";
-import DailyForecast from "./DailyForecast";
 
 function App() {
+  let [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({ ready: false });
   const [city, setCity] = useState("London");
   const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=64e8bf8bdd085388ddf709fb1376b4fe`;
@@ -13,9 +13,16 @@ function App() {
     e.preventDefault();
     search();
   }
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [city]);
+
   function showData(resp) {
+    setLoaded(true);
     console.log(resp);
     setWeather({
+      name: resp.data.name,
       temp: resp.data.main.temp,
       wind: resp.data.wind.speed,
       humidity: resp.data.main.humidity,
@@ -30,7 +37,7 @@ function App() {
   function search() {
     axios.get(urlApi).then(showData);
   }
-  if (weather.temp) {
+  if (loaded) {
     return (
       <div className="Attic container">
         <div className="row attic-line">
@@ -53,7 +60,6 @@ function App() {
           </div>
         </div>
         <Main data={weather} />
-        <DailyForecast city={city} />
       </div>
     );
   } else {
