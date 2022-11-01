@@ -10,7 +10,7 @@ export default function Main(prop) {
       <main className="overview container">
         <div className="overviewRow row">
           <div className="col-md-5">
-            {<WeatherIcon code={prop.data.icon} />}
+            {<WeatherIcon code={prop.data.icon} size={80} />}
 
             <ul>
               <li>

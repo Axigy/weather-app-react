@@ -3,6 +3,7 @@ import "./App.css";
 import Loading from "./Loading";
 import axios from "axios";
 import Main from "./Main";
+import DailyForecast from "./DailyForecast";
 
 function App() {
   const [weather, setWeather] = useState({ ready: false });
@@ -52,6 +53,7 @@ function App() {
           </div>
         </div>
         <Main data={weather} />
+        <DailyForecast city={city} />
       </div>
     );
   } else {
